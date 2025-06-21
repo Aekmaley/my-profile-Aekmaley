@@ -64,8 +64,18 @@
         <!-- หน้า ช่องทางติดต่อ -->
     <section id="contact" class="page">
       <h2>ช่องทางการติดต่อ</h2>
-      <p><i class="fas fa-envelope"></i> aekachai.sab@cdti.ac.th</p>
-      <p><i class="fab fa-line"></i> Line ID: aekmaley2491</p>
+      <form class="contact-form" onsubmit="return false;">
+        <input type="text" placeholder="ชื่อของคุณ" required>
+        <input type="email" placeholder="อีเมลของคุณ" required>
+        <textarea placeholder="ข้อความของคุณ..." rows="5" required></textarea>
+        <button type="submit">ส่งข้อความ</button>
+      </form>
+
+      <div class="contact-links">
+        <a href="https://line.me/ti/p/~aekmaley2491" target="_blank" class="line-button">
+          <i class="fab fa-line"></i> แชทผ่าน LINE
+        </a>
+      </div>
     </section>
   </div>
 
