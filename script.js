@@ -1,21 +1,18 @@
 function showPage(event, pageId) {
-  // ซ่อนทุกหน้า
   const pages = document.querySelectorAll('.page');
   pages.forEach(page => {
     page.classList.remove('active', 'fade-in');
   });
 
-  // แสดงหน้าที่เลือก
   const targetPage = document.getElementById(pageId);
   if (targetPage) {
     targetPage.classList.add('active');
     setTimeout(() => {
       targetPage.classList.add('fade-in');
-    }, 10); // เพิ่ม fade-in
+    }, 10);
     targetPage.scrollIntoView({ behavior: 'smooth' });
   }
 
-  // เปลี่ยนเมนู active
   const navLinks = document.querySelectorAll('.nav-links li');
   navLinks.forEach(link => link.classList.remove('active'));
   if (event && event.target) {
@@ -23,10 +20,8 @@ function showPage(event, pageId) {
   }
 }
 
-
 function submitForm(event) {
   event.preventDefault();
-
   const form = event.target;
   const formData = new FormData(form);
   const data = Object.fromEntries(formData.entries());
@@ -51,4 +46,3 @@ function submitForm(event) {
     alert("❌ เกิดข้อผิดพลาดในการส่งข้อมูล");
   });
 }
-
