@@ -3,36 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ครูเอกชัย สบายจิตร | ประวัติส่วนตัว</title>
+  <title>ครูเอกชัย สบายจิตร | เว็บไซต์ประวัติส่วนตัว</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-  <div class="container">
-    <img src="images/profile.jpg" alt="รูปโปรไฟล์ครูเอกชัย">
-    <h1>ครูเอกชัย สบายจิตร</h1>
-    <p class="subtitle">ครูผู้สอนเทคโนโลยีสารสนเทศ</p>
+  <nav class="navbar">
+    <h1 class="logo">ครูเอกชัย</h1>
+    <ul class="nav-links">
+      <li onclick="showPage('home')">หน้าแรก</li>
+      <li onclick="showPage('education')">ประวัติการศึกษา</li>
+      <li onclick="showPage('skills')">ทักษะ</li>
+      <li onclick="showPage('contact')">ช่องทางติดต่อ</li>
+      <li onclick="showPage('courses')">คอร์สออนไลน์</li>
+    </ul>
+  </nav>
 
-    <section>
+  <div class="container">
+
+    <!-- หน้า Home -->
+    <section id="home" class="page active">
+      <img src="images/profile.jpg" alt="รูปโปรไฟล์ครูเอก">
+      <h2>ครูเอกชัย สบายจิตร</h2>
+      <p>ครูผู้สอนเทคโนโลยีสารสนเทศ | วิทยาลัยเทคโนโลยีจิรดาวิชาชีพ</p>
+    </section>
+
+    <!-- หน้า ประวัติการศึกษา -->
+    <section id="education" class="page">
       <h2>ประวัติการศึกษา</h2>
       <ul>
-        <li>ปริญญาตรี: วิศวกรรมคอมพิวเตอร์</li>
+        <li>ปริญญาตรี: วิศวกรรมคอมพิวเตอร์, สถาบัน K-Wave</li>
       </ul>
     </section>
 
-    <section>
-      <h2>ทักษะ</h2>
+    <!-- หน้า ทักษะ -->
+    <section id="skills" class="page">
+      <h2>ทักษะความถนัด</h2>
       <ul>
-        <li>ภาษา: Python, C, HTML, CSS, JavaScript, Excel VBA</li>
-        <li>ความเชี่ยวชาญ: Network & Server Configuration</li>
+        <li>Python, C, HTML, CSS, JavaScript, Excel VBA</li>
+        <li>Network & Server Configuration</li>
+        <li>Unity & Game Design</li>
       </ul>
     </section>
 
-    <section>
+    <!-- หน้า ช่องทางติดต่อ -->
+    <section id="contact" class="page">
       <h2>ช่องทางการติดต่อ</h2>
       <p><i class="fas fa-envelope"></i> aekachai.sab@cdti.ac.th</p>
       <p><i class="fab fa-line"></i> Line ID: aekmaley2491</p>
+      <p><i class="fab fa-facebook"></i> facebook.com/kruaek</p>
+    </section>
+
+    <!-- หน้า คอร์สออนไลน์ -->
+    <section id="courses" class="page">
+      <h2>คอร์สออนไลน์ที่สอน</h2>
+      <ul>
+        <li>พื้นฐาน Python สำหรับนักเรียนอาชีวะ</li>
+        <li>ออกแบบเว็บไซต์ HTML/CSS</li>
+        <li>สร้างเกมง่าย ๆ ด้วย Unity</li>
+      </ul>
     </section>
   </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
