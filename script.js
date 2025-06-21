@@ -20,3 +20,10 @@ function showPage(pageId) {
   navLinks.forEach(link => link.classList.remove('active'));
   event.target.classList.add('active');
 }
+fetch("https://script.google.com/macros/s/AKfycbxnz8NnqAQO-EdGxVG1pIoOaaefHw61_thSc2PFpzVY1zLzROBsVMdpQ873bdbD0Ez2/exec", {
+  method: "POST",
+  body: JSON.stringify(data),
+  headers: {
+    "Content-Type": "application/json",
+  },
+})
