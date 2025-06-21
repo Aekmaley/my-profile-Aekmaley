@@ -120,7 +120,29 @@
   <div id="form-status"></div>
 </section>
   </div>
+  <script>
+  function submitForm(event) {
+    event.preventDefault();
+    const form = event.target;
+    const formData = new FormData(form);
 
+    const entries = Object.fromEntries(formData.entries());
+    const message = `สมัครเรียนใหม่จากผู้ใช้:\n\n` +
+      `👤 ชื่อ: ${entries.name}\n` +
+      `📘 วิชาที่เลือก: ${entries.subject}\n` +
+      `🎂 วัย: ${entries.age}\n` +
+      `📡 เรียนแบบ: ${entries.style}\n` +
+      `📅 เวลาเรียนที่ต้องการ: ${entries.schedule}\n` +
+      `⏰ ช่วงเวลาที่สะดวก: ${entries.time}\n` +
+      `📞 เบอร์: ${entries.phone}\n` +
+      `💬 Line ID: ${entries.line}`;
+
+    const mailtoLink = `mailto:aekachai.sab@cdti.ac.th?subject=สมัครเรียนกับครูเอกชัย&body=${encodeURIComponent(message)}`;
+    window.location.href = mailtoLink;
+    return false;
+  }
+  </script>
+   <!-- ถ้ามี script.js แยกไว้ -->
   <script src="script.js"></script>
 </body>
 </html>
