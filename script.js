@@ -29,6 +29,7 @@ function submitForm(event) {
 
   fetch("https://script.google.com/macros/s/AKfycbx3pt-SsGXKHNzHPjlYw9cwgcay_jv44gH5nwie09RP2det49Q-Tper3EWefFBnO5LsvA/exec", {
     method: "POST",
+    mode: "cors",
     body: JSON.stringify(data),
     headers: {
       "Content-Type": "application/json",
