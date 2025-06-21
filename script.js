@@ -27,7 +27,7 @@ function submitForm(event) {
   const formData = new FormData(form);
   const data = Object.fromEntries(formData.entries());
 
-  fetch("https://script.google.com/macros/s/AKfycbxnz8NnqAQO-EdGxVG1pIoOaaefHw61_thSc2PFpzVY1zLzROBsVMdpQ873bdbD0Ez2/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbx3pt-SsGXKHNzHPjlYw9cwgcay_jv44gH5nwie09RP2det49Q-Tper3EWefFBnO5LsvA/exec", {
     method: "POST",
     body: JSON.stringify(data),
     headers: {
