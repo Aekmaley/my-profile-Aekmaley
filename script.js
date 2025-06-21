@@ -1,4 +1,4 @@
-function showPage(pageId) {
+function showPage(event, pageId) {
   // ซ่อนทุกหน้า
   const pages = document.querySelectorAll('.page');
   pages.forEach(page => {
@@ -11,19 +11,44 @@ function showPage(pageId) {
     targetPage.classList.add('active');
     setTimeout(() => {
       targetPage.classList.add('fade-in');
-    }, 10); // เลื่อนลื่น + fade-in
+    }, 10); // เพิ่ม fade-in
     targetPage.scrollIntoView({ behavior: 'smooth' });
   }
 
   // เปลี่ยนเมนู active
   const navLinks = document.querySelectorAll('.nav-links li');
   navLinks.forEach(link => link.classList.remove('active'));
-  event.target.classList.add('active');
+  if (event && event.target) {
+    event.target.classList.add('active');
+  }
 }
-fetch("https://script.google.com/macros/s/AKfycbxnz8NnqAQO-EdGxVG1pIoOaaefHw61_thSc2PFpzVY1zLzROBsVMdpQ873bdbD0Ez2/exec", {
-  method: "POST",
-  body: JSON.stringify(data),
-  headers: {
-    "Content-Type": "application/json",
-  },
-})
+
+
+function submitForm(event) {
+  event.preventDefault();
+
+  const form = event.target;
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData.entries());
+
+  fetch("https://script.google.com/macros/s/AKfycbxnz8NnqAQO-EdGxVG1pIoOaaefHw61_thSc2PFpzVY1zLzROBsVMdpQ873bdbD0Ez2/exec", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+  .then(res => {
+    if (res.ok) {
+      alert("✅ ส่งข้อมูลเรียบร้อยแล้วครับ");
+      form.reset();
+    } else {
+      throw new Error("เกิดข้อผิดพลาดในการส่งข้อมูล");
+    }
+  })
+  .catch(err => {
+    console.error("Error:", err);
+    alert("❌ เกิดข้อผิดพลาดในการส่งข้อมูล");
+  });
+}
+
