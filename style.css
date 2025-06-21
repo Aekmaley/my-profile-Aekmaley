@@ -1,36 +1,89 @@
 body {
   font-family: 'Sarabun', sans-serif;
-  background: #f9f9f9;
-  color: #333;
+  background: #f4f7f9;
   margin: 0;
-  padding: 20px;
+  padding: 0;
+  color: #333;
 }
 
 .container {
-  max-width: 600px;
-  margin: auto;
-  background: #fff;
+  max-width: 700px;
+  margin: 40px auto;
+  background-color: #fff;
+  padding: 30px 40px;
   border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  padding: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
 img {
-  width: 40%;
-  max-width: 150px;
-  height: auto;
-  border-radius: 50%;
+  width: 130px;
+  height: 130px;
   object-fit: cover;
+  border-radius: 50%;
   margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  font-size: 1.8em;
+  margin: 10px 0 5px;
+}
+
+.subtitle {
+  color: #555;
+  margin-bottom: 30px;
+  font-style: italic;
+}
+
+section {
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+h2 {
+  font-size: 1.4em;
+  color: #008080;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li::before {
+  content: "✔ ";
+  color: #2ecc71;
+  margin-right: 8px;
+}
+
+p {
+  margin: 8px 0;
+}
+
+i {
+  margin-right: 8px;
+  color: #555;
 }
 
 @media (max-width: 600px) {
   .container {
-    padding: 10px;
+    padding: 20px;
   }
 
   img {
-    width: 50%;
+    width: 100px;
+    height: 100px;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  h2 {
+    font-size: 1.2em;
   }
 }
