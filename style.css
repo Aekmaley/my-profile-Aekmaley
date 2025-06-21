@@ -1,0 +1,26 @@
+body {
+  font-family: 'Sarabun', sans-serif;
+  background: #f9f9f9;
+  color: #333;
+  text-align: center;
+  padding: 30px;
+}
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 20px;
+}
+img {
+  width: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+ul {
+  text-align: left;
+}
+i {
+  margin-right: 10px;
+}
