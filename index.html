@@ -126,28 +126,38 @@
   <div id="form-status"></div>
 </section>
   </div>
+  
   <script>
   function submitForm(event) {
     event.preventDefault();
     const form = event.target;
     const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
 
-    const entries = Object.fromEntries(formData.entries());
-    const message = `สมัครเรียนใหม่จากผู้ใช้:\n\n` +
-      `👤 ชื่อ: ${entries.name}\n` +
-      `📘 วิชาที่เลือก: ${entries.subject}\n` +
-      `🎂 วัย: ${entries.age}\n` +
-      `📡 เรียนแบบ: ${entries.style}\n` +
-      `📅 เวลาเรียนที่ต้องการ: ${entries.schedule}\n` +
-      `⏰ ช่วงเวลาที่สะดวก: ${entries.time}\n` +
-      `📞 เบอร์: ${entries.phone}\n` +
-      `💬 Line ID: ${entries.line}`;
-
-    const mailtoLink = `mailto:aekachai.sab@cdti.ac.th?subject=สมัครเรียนกับครูเอกชัย&body=${encodeURIComponent(message)}`;
-    window.location.href = mailtoLink;
-    return false;
+    fetch('https://script.google.com/macros/s/AKfycbxnz8NnqAQO-EdGxVG1pIoOaaefHw61_thSc2PFpzVY1zLzROBsVMdpQ873bdbD0Ez2/exec', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    .then(res => res.json())
+    .then(response => {
+      if (response.result === "success") {
+        alert("✅ ส่งข้อมูลเรียบร้อยแล้ว ขอบคุณครับ");
+        form.reset();
+      } else {
+        alert("❌ มีบางอย่างผิดพลาด กรุณาลองใหม่");
+      }
+    })
+    .catch(error => {
+      console.error("เกิดข้อผิดพลาด:", error);
+      alert("❌ เกิดข้อผิดพลาดในการส่งข้อมูล");
+    });
   }
   </script>
+
+  
    <!-- ถ้ามี script.js แยกไว้ -->
   <script src="script.js"></script>
 </body>
